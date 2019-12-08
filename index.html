@@ -24,7 +24,7 @@
     scheme: 'Gemini',
     version: '7.6.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -40,18 +40,18 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-  <meta name="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+  <meta name="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
 <meta property="og:type" content="website">
 <meta property="og:title" content="牧羊游马">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;index.html">
 <meta property="og:site_name" content="牧羊游马">
-<meta property="og:description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+<meta property="og:description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 
@@ -115,7 +115,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">一个伪文艺爱好者的自嗨根据地</p>
+        <p class="site-subtitle">一个伪文艺程序员的的字留地</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -161,9 +161,34 @@
     <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -187,83 +212,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/12/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Q_Q chao">
-      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="牧羊游马">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-07 20:59:10 / 修改时间：16:34:38" itemprop="dateCreated datePublished" datetime="2019-12-07T20:59:10+08:00">2019-12-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/01/06/excel-vlookup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Q_Q chao">
-      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -289,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-07 21:04:31" itemprop="dateModified" datetime="2019-12-07T21:04:31+08:00">2019-12-07</time>
+                <time title="修改时间：2019-12-08 10:03:42" itemprop="dateModified" datetime="2019-12-08T10:03:42+08:00">2019-12-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,15 +277,15 @@
 <li>value4：是否模糊匹配（true：模糊匹配；false：完全匹配）</li>
 </ul>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>假定有如下两张表，需要将表2的年龄信息对应填入表1：</p>
-<p><img src="/.top//empty.png" alt="初始文件"><br><img src="/.top//age.png" alt="初始文件"></p>
-<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/.top//function.png" alt="初始文件"></p>
+<p><img src="/2019/01/06/excel-vlookup/empty.png" alt="初始文件"><br><img src="/2019/01/06/excel-vlookup/age.png" alt="初始文件"></p>
+<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/2019/01/06/excel-vlookup/function.png" alt="初始文件"></p>
 <p>为了方便方法填写，将查询表的数据复制到目标文件的右侧，填写VLOOKUP方法，并使用下拉填充填满整列，查询结果即显示出来</p>
 <h3 id="白话翻译："><a href="#白话翻译：" class="headerlink" title="白话翻译："></a>白话翻译：</h3><p>将上图中的函数<code>VLOOKUP(A2,F:G,2,FALSE)</code>进行功能描述就是：从F列中找到与A2（value1）中数据信息完全一致（value4：false）的数据行（找到F3，定位第3行），并将该行对应G列（value3：第2列）的数据信息（G3）填入当前位置（C2）</p>
 <h2 id="清除公式及辅助数据"><a href="#清除公式及辅助数据" class="headerlink" title="清除公式及辅助数据"></a>清除公式及辅助数据</h2><ol>
 <li>清除公式：<br>查询完成后，点击列表头原地复制粘贴，粘贴时使用选择性粘贴只粘贴数值</li>
 <li>清除右侧查询域数据</li>
 </ol>
-<p><img src="/.top//result.png" alt="初始文件"></p>
+<p><img src="/2019/01/06/excel-vlookup/result.png" alt="初始文件"></p>
 
       
     </div>
@@ -354,9 +308,9 @@
     <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/01/04/vue-ie10-upload/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Q_Q chao">
-      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -435,9 +389,9 @@
     <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/01/03/%E5%BC%80%E5%B1%B1%E7%AB%8B%E6%A3%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Q_Q chao">
-      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -489,6 +443,83 @@
 
       
           <h3 id="迟来的立棍仪式："><a href="#迟来的立棍仪式：" class="headerlink" title="迟来的立棍仪式："></a>迟来的立棍仪式：</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2018/12/31/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Q_Q chao">
+      <meta itemprop="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="牧羊游马">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/31/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-31 22:16:15" itemprop="dateCreated datePublished" datetime="2018-12-31T22:16:15+08:00">2018-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-08 10:33:00" itemprop="dateModified" datetime="2019-12-08T10:33:00+08:00">2019-12-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
     </div>
@@ -563,8 +594,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Q_Q chao"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Q_Q chao</p>
-  <div class="site-description" itemprop="description">吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）</div>
+  <div class="site-description" itemprop="description">吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -648,6 +681,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 

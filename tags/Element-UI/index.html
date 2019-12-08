@@ -24,7 +24,7 @@
     scheme: 'Gemini',
     version: '7.6.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -40,18 +40,18 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-  <meta name="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+  <meta name="description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
 <meta property="og:type" content="website">
 <meta property="og:title" content="牧羊游马">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;tags&#x2F;Element-UI&#x2F;index.html">
 <meta property="og:site_name" content="牧羊游马">
-<meta property="og:description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）">
+<meta property="og:description" content="吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 
@@ -115,7 +115,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">一个伪文艺爱好者的自嗨根据地</p>
+        <p class="site-subtitle">一个伪文艺程序员的的字留地</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -161,9 +161,34 @@
     <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -281,8 +306,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Q_Q chao"
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Q_Q chao</p>
-  <div class="site-description" itemprop="description">吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]]）</div>
+  <div class="site-description" itemprop="description">吃饭睡觉，陶冶秦超     （小站尚在筹建当中，配置简陋，还望各位看官海涵 [抱拳]）</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -366,6 +393,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
