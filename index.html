@@ -207,6 +207,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/12/09/hexo/hexo-linux-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Q_Q chao">
+      <meta itemprop="description" content="吃饭睡觉_._陶冶秦超">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qqchao的字留地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/09/hexo/hexo-linux-server/" class="post-title-link" itemprop="url">ubuntu系统中启动Hexo遇到ENOSPC错误以及如何解决</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-09 11:42:28 / 修改时间：14:51:45" itemprop="dateCreated datePublished" datetime="2019-12-09T11:42:28+08:00">2019-12-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><blockquote>
+<p>在ubuntu系统中启动Hexo服务，Terminal报错：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Error: watch &#x2F;home&#x2F;qqchao&#x2F;code&#x2F;my-gitlab&#x2F;my-blog&#x2F;source&#x2F;_posts ENOSPC</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    at FSWatcher.start (fs.js:1402:19)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    at Object.fs.watch (fs.js:1428:11)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    at createFsWatchInstance (&#x2F;home&#x2F;qqchao&#x2F;code&#x2F;my-gitlab&#x2F;my-blog&#x2F;node_modules&#x2F;chokidar&#x2F;lib&#x2F;nodefs-handler.js:118:15)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    at setFsWatchListener (&#x2F;home&#x2F;qqchao&#x2F;code&#x2F;my-gitlab&#x2F;my-blog&#x2F;node_modules&#x2F;chokidar&#x2F;lib&#x2F;nodefs-handler.js:165:15)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    at NodeFsHandler._watchWithNodeFs (&#x2F;home&#x2F;qqchao&#x2F;code&#x2F;my-gitlab&#x2F;my-blog&#x2F;node_modules&#x2F;chokidar&#x2F;lib&#x2F;nodefs-handler.js:330:14)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    at NodeFsHandler._handleDir (&#x2F;home&#x2F;qqchao&#x2F;code&#x2F;my-gitlab&#x2F;my-blog&#x2F;node_modules&#x2F;chokidar&#x2F;lib&#x2F;nodefs-handler.js:551:19)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    at &lt;anonymous&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    at process._tickCallback (internal&#x2F;process&#x2F;next_tick.js:182:7)</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>```Error No more hard-disk space available```（没有更多的磁盘空间可以使用）   </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">经度娘的一番分析，确诊原因为，&#96;&#96;&#96;nodemon&#96;&#96;&#96;监听文件过多（超过系统允许监听的默认值）导致出现异常。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">#### 解决方法</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">###### 方法一： 提高系统允许监听文件数</span></pre></td></tr></table></figure>
+<p>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">###### 方法二：过滤掉不必要的监听的文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">在项目的根目录，创建 nodemon.json 文件，并设置过滤内容。</span></pre></td></tr></table></figure>
+<p>// nodemon.json</p>
+<p>{<br>  “ignore”: [<br>    “<em>.test.js”,<br>    “dist/</em>“<br>  ]<br>}</p>
+<pre><code>需要注意的是，nodemon 会默认忽略掉以下类型的文件， ```.git```, ```node_modules```, ```bower_components```, ```.nyc_output```, ```coverage```，``` .sass-cache```。因此，不必将这些类型的文件放入到配置中。</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.qqchao.top/2019/12/08/hexo/hexo-init/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,10 +308,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-12-08 12:11:02 / 修改时间：19:34:00" itemprop="dateCreated datePublished" datetime="2019-12-08T12:11:02+08:00">2019-12-08</time>
+              <time title="创建时间：2019-12-08 12:11:02" itemprop="dateCreated datePublished" datetime="2019-12-08T12:11:02+08:00">2019-12-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-09 11:26:05" itemprop="dateModified" datetime="2019-12-09T11:26:05+08:00">2019-12-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -342,7 +426,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-08 18:53:01" itemprop="dateModified" datetime="2019-12-08T18:53:01+08:00">2019-12-08</time>
+                <time title="修改时间：2019-12-09 11:26:05" itemprop="dateModified" datetime="2019-12-09T11:26:05+08:00">2019-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -376,15 +460,15 @@
 <li>value4：是否模糊匹配（true：模糊匹配；false：完全匹配）</li>
 </ul>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>假定有如下两张表，需要将表2的年龄信息对应填入表1：</p>
-<p><img src="/2019/01/06/excel/excel-vlookup/empty.png" alt="初始文件"><br><img src="/2019/01/06/excel/excel-vlookup/age.png" alt="初始文件"></p>
-<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/2019/01/06/excel/excel-vlookup/function.png" alt="初始文件"></p>
+<p><img src="/.top//empty.png" alt="初始文件"><br><img src="/.top//age.png" alt="初始文件"></p>
+<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/.top//function.png" alt="初始文件"></p>
 <p>为了方便方法填写，将查询表的数据复制到目标文件的右侧，填写VLOOKUP方法，并使用下拉填充填满整列，查询结果即显示出来</p>
 <h3 id="白话翻译："><a href="#白话翻译：" class="headerlink" title="白话翻译："></a>白话翻译：</h3><p>将上图中的函数<code>VLOOKUP(A2,F:G,2,FALSE)</code>进行功能描述就是：从F列中找到与A2（value1）中数据信息完全一致（value4：false）的数据行（找到F3，定位第3行），并将该行对应G列（value3：第2列）的数据信息（G3）填入当前位置（C2）</p>
 <h2 id="清除公式及辅助数据"><a href="#清除公式及辅助数据" class="headerlink" title="清除公式及辅助数据"></a>清除公式及辅助数据</h2><ol>
 <li>清除公式：<br>查询完成后，点击列表头原地复制粘贴，粘贴时使用选择性粘贴只粘贴数值</li>
 <li>清除右侧查询域数据</li>
 </ol>
-<p><img src="/2019/01/06/excel/excel-vlookup/result.png" alt="初始文件"></p>
+<p><img src="/.top//result.png" alt="初始文件"></p>
 
       
     </div>
@@ -435,7 +519,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-07 21:04:31" itemprop="dateModified" datetime="2019-12-07T21:04:31+08:00">2019-12-07</time>
+                <time title="修改时间：2019-12-09 11:26:05" itemprop="dateModified" datetime="2019-12-09T11:26:05+08:00">2019-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -516,7 +600,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-09 11:19:47" itemprop="dateModified" datetime="2019-12-09T11:19:47+08:00">2019-12-09</time>
+                <time title="修改时间：2019-12-09 11:55:51" itemprop="dateModified" datetime="2019-12-09T11:55:51+08:00">2019-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -541,7 +625,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="小站立棍仪式："><a href="#小站立棍仪式：" class="headerlink" title="小站立棍仪式："></a>小站立棍仪式：</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
+          <h3 id="小站开张了！"><a href="#小站开张了！" class="headerlink" title="小站开张了！"></a>小站开张了！</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
 
       
     </div>
@@ -592,7 +676,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-08 10:33:00" itemprop="dateModified" datetime="2019-12-08T10:33:00+08:00">2019-12-08</time>
+                <time title="修改时间：2019-12-09 11:26:05" itemprop="dateModified" datetime="2019-12-09T11:26:05+08:00">2019-12-09</time>
               </span>
 
           
@@ -703,7 +787,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -716,7 +800,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

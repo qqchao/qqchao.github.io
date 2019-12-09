@@ -54,13 +54,13 @@
 <meta property="og:site_name" content="qqchao的字留地">
 <meta property="og:description" content="VLOOKUP函数是Excel中的一个纵向查找函数，它与LOOKUP函数和HLOOKUP函数属于一类函数，在工作中都有广泛应用，例如可以用来核对数据，多个表格之间快速导入数据等函数功能。功能是按列查找，最终返回该列所需查询列序所对应的值；与之对应的HLOOKUP是按行查找的。        ————度娘百科 方法参数分析VLOOKUP方法需要输入四个参数  value1：查询检索字段&#x2F;数据源（字符">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;2019&#x2F;01&#x2F;06&#x2F;excel&#x2F;excel-vlookup&#x2F;empty.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;2019&#x2F;01&#x2F;06&#x2F;excel&#x2F;excel-vlookup&#x2F;age.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;2019&#x2F;01&#x2F;06&#x2F;excel&#x2F;excel-vlookup&#x2F;function.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;2019&#x2F;01&#x2F;06&#x2F;excel&#x2F;excel-vlookup&#x2F;result.png">
-<meta property="og:updated_time" content="2019-12-08T10:53:01.209Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;.top&#x2F;&#x2F;empty.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;.top&#x2F;&#x2F;age.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;.top&#x2F;&#x2F;function.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;.top&#x2F;&#x2F;result.png">
+<meta property="og:updated_time" content="2019-12-09T03:26:05.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;2019&#x2F;01&#x2F;06&#x2F;excel&#x2F;excel-vlookup&#x2F;empty.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.qqchao.top&#x2F;.top&#x2F;&#x2F;empty.png">
 
 <link rel="canonical" href="http://www.qqchao.top/2019/01/06/excel/excel-vlookup/">
 
@@ -244,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-08 18:53:01" itemprop="dateModified" datetime="2019-12-08T18:53:01+08:00">2019-12-08</time>
+                <time title="修改时间：2019-12-09 11:26:05" itemprop="dateModified" datetime="2019-12-09T11:26:05+08:00">2019-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,15 +278,15 @@
 <li>value4：是否模糊匹配（true：模糊匹配；false：完全匹配）</li>
 </ul>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>假定有如下两张表，需要将表2的年龄信息对应填入表1：</p>
-<p><img src="/2019/01/06/excel/excel-vlookup/empty.png" alt="初始文件"><br><img src="/2019/01/06/excel/excel-vlookup/age.png" alt="初始文件"></p>
-<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/2019/01/06/excel/excel-vlookup/function.png" alt="初始文件"></p>
+<p><img src="/.top//empty.png" alt="初始文件"><br><img src="/.top//age.png" alt="初始文件"></p>
+<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/.top//function.png" alt="初始文件"></p>
 <p>为了方便方法填写，将查询表的数据复制到目标文件的右侧，填写VLOOKUP方法，并使用下拉填充填满整列，查询结果即显示出来</p>
 <h3 id="白话翻译："><a href="#白话翻译：" class="headerlink" title="白话翻译："></a>白话翻译：</h3><p>将上图中的函数<code>VLOOKUP(A2,F:G,2,FALSE)</code>进行功能描述就是：从F列中找到与A2（value1）中数据信息完全一致（value4：false）的数据行（找到F3，定位第3行），并将该行对应G列（value3：第2列）的数据信息（G3）填入当前位置（C2）</p>
 <h2 id="清除公式及辅助数据"><a href="#清除公式及辅助数据" class="headerlink" title="清除公式及辅助数据"></a>清除公式及辅助数据</h2><ol>
 <li>清除公式：<br>查询完成后，点击列表头原地复制粘贴，粘贴时使用选择性粘贴只粘贴数值</li>
 <li>清除右侧查询域数据</li>
 </ol>
-<p><img src="/2019/01/06/excel/excel-vlookup/result.png" alt="初始文件"></p>
+<p><img src="/.top//result.png" alt="初始文件"></p>
 
     </div>
 
@@ -387,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -400,7 +400,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
