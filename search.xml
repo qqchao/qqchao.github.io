@@ -1,9 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>使用wget下载jdk</title>
+    <title>hello world</title>
+    <url>/2019/01/03/hello-world/</url>
+    <content><![CDATA[<h3 id="小站开张了！"><a href="#小站开张了！" class="headerlink" title="小站开张了！"></a>小站开张了！</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
+]]></content>
+      <categories>
+        <category>闲言碎语</category>
+      </categories>
+      <tags>
+        <tag>闲言碎语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2018/12/31/hexo-hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>excel之vlookup——列查询匹配</title>
+    <url>/2019/01/06/excel/excel-vlookup/</url>
+    <content><![CDATA[<p>VLOOKUP函数是Excel中的一个纵向查找函数，它与LOOKUP函数和HLOOKUP函数属于一类函数，在工作中都有广泛应用，例如可以用来核对数据，多个表格之间快速导入数据等函数功能。功能是按列查找，最终返回该列所需查询列序所对应的值；与之对应的HLOOKUP是按行查找的。        ————度娘百科</p>
+<h2 id="方法参数分析"><a href="#方法参数分析" class="headerlink" title="方法参数分析"></a>方法参数分析</h2><a id="more"></a>
+
+<p>VLOOKUP方法需要输入四个参数</p>
+<ul>
+<li>value1：查询检索字段/数据源（字符串或者引用位置）</li>
+<li>value2：查询区域（格式一 (B:D) 查询B列到D列；  格式二 (B2:D5) B2到D5之间的长方形区域）第一列为查询区域，后几列为value3使用，value3取值须在查询区域内，如value3填入3，则value2必填B:D/B:E/B:F…不可填B:B/B:C</li>
+<li>value3：填入的数据取查询区域的第几列</li>
+<li>value4：是否模糊匹配（true：模糊匹配；false：完全匹配）</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>假定有如下两张表，需要将表2的年龄信息对应填入表1：</p>
+<p><img src="/2019/01/06/excel/excel-vlookup/empty.png" alt="初始文件"><br><img src="/2019/01/06/excel/excel-vlookup/age.png" alt="初始文件"></p>
+<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/2019/01/06/excel/excel-vlookup/function.png" alt="初始文件"></p>
+<p>为了方便方法填写，将查询表的数据复制到目标文件的右侧，填写VLOOKUP方法，并使用下拉填充填满整列，查询结果即显示出来</p>
+<h3 id="白话翻译："><a href="#白话翻译：" class="headerlink" title="白话翻译："></a>白话翻译：</h3><p>将上图中的函数<code>VLOOKUP(A2,F:G,2,FALSE)</code>进行功能描述就是：从F列中找到与A2（value1）中数据信息完全一致（value4：false）的数据行（找到F3，定位第3行），并将该行对应G列（value3：第2列）的数据信息（G3）填入当前位置（C2）</p>
+<h2 id="清除公式及辅助数据"><a href="#清除公式及辅助数据" class="headerlink" title="清除公式及辅助数据"></a>清除公式及辅助数据</h2><ol>
+<li>清除公式：<br>查询完成后，点击列表头原地复制粘贴，粘贴时使用选择性粘贴只粘贴数值</li>
+<li>清除右侧查询域数据</li>
+</ol>
+<p><img src="/2019/01/06/excel/excel-vlookup/result.png" alt="初始文件"></p>
+]]></content>
+      <categories>
+        <category>excel</category>
+      </categories>
+      <tags>
+        <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo + 云服务器 = 我的字留地</title>
+    <url>/2019/12/08/hexo/hexo-init/</url>
+    <content><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<p>网络上有各式各样Hexo博客搭建教程，在这里就不再做详细描述，只是简单记述一下本站的大体结构。<br>本站是基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>博客框架+<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next</a>主题搭建，最初部署于GitHub的page服务，现改用为阿里云服务器。    </p>
+</blockquote>
+<h4 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h4><ul>
+<li>本地<a href="git-scm.com">git</a>环境</li>
+<li>本地<a href="nodejs.org">Node.js</a>环境 </li>
+<li>git服务(可以使用<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>用来代码托管，或者使用其他代码服务)<br>作为代码托管，或者拥有其他代码服务的账号)</li>
+<li>云服务器 + 域名（也可使用GitHub等服务的page服务）</li>
+</ul>
+<a id="more"></a>
+
+<h4 id="2-Hexo博客服务"><a href="#2-Hexo博客服务" class="headerlink" title="2.Hexo博客服务"></a>2.Hexo博客服务</h4><ul>
+<li>可参考网络中各种hexo教程，再此不做过多重复搬运工作。<blockquote>
+<p>（感谢<a href="http://www.zhaojun.im/categories/Hexo/" target="_blank" rel="noopener">赵俊的博客</a>在本站搭建过程中提供的支持，以及简书上各路技术博主支持）</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-我的博客"><a href="#3-我的博客" class="headerlink" title="3.我的博客"></a>3.我的博客</h4><p>本站使用阿里云服务托管，在阿里云服务器中搭建两个git服务，启动nginx服务器做访问转发。</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664" target="_blank" rel="noopener">git服务搭建教程</a></p>
+<ul>
+<li><p>1) git server1: Hexo-blog管理，用于支持多端更新</p>
+</li>
+<li><p>2) git server2: 站点配置文件(_config.yml)中deplay配置，用于部署</p>
+</li>
+<li><p>3) 服务器中创建blog目录,定时更新server    </p>
+<ul>
+<li><p>创建blog文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local</span><br><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br></pre></td></tr></table></figure></li>
+<li><p>克隆blog部署文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git.server2</span><br></pre></td></tr></table></figure></li>
+<li><p>设置<a href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html" target="_blank" rel="noopener">Linux定时任务</a>,在/usr/local/blog路径创建脚本文件update.sh,定时同步资源    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd $&#123;server2&#125;</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>4) 修改nginx配置root指向/usr/local/blog/${server2}</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu系统中启动Hexo遇到ENOSPC错误以及如何解决</title>
+    <url>/2019/12/09/hexo/hexo-linux-server/</url>
+    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><blockquote>
+<p>在ubuntu系统中启动Hexo服务，Terminal报错：</p>
+</blockquote>
+<p><img src="/2019/12/09/hexo/hexo-linux-server/hexo-server-error.png" alt="errorInfo.png"></p>
+<p>ENOSPC的含义是 <code>Error No more hard-disk space available</code>（没有更多的磁盘空间可以使用）   </p>
+<p>经度娘的一番分析，确诊原因为，<code>nodemon</code>监听文件过多（超过系统允许监听的默认值）导致出现异常。</p>
+<a id="more"></a>
+
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><h6 id="方法一：-提高系统允许监听文件数"><a href="#方法一：-提高系统允许监听文件数" class="headerlink" title="方法一： 提高系统允许监听文件数"></a>方法一： 提高系统允许监听文件数</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo fs.inotify.max_user_watches&#x3D;524288 | sudo tee -a &#x2F;etc&#x2F;sysctl.conf &amp;&amp; sudo sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h6 id="方法二：过滤掉不必要的监听的文件"><a href="#方法二：过滤掉不必要的监听的文件" class="headerlink" title="方法二：过滤掉不必要的监听的文件"></a>方法二：过滤掉不必要的监听的文件</h6><p>在项目的根目录，创建 nodemon.json 文件，并设置过滤内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; nodemon.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;ignore&quot;: [</span><br><span class="line">    &quot;*.test.js&quot;, </span><br><span class="line">    &quot;dist&#x2F;*&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，nodemon 会默认忽略掉以下类型的文件， <code>.git</code>, <code>node_modules</code>, <code>bower_components</code>, <code>.nyc_output</code>, <code>coverage</code>，<code>.sass-cache</code>。因此，不必将这些类型的文件放入到配置中。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Node.js</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图片不显示</title>
+    <url>/2019/12/12/hexo/hexo-pic-view/</url>
+    <content><![CDATA[<blockquote>
+<p>在搭建Hexo Blog 过程中出现了图片不显示，解决的方法：</p>
+</blockquote>
+<ul>
+<li>1.安装插件与配置</li>
+</ul>
+<blockquote>
+<p>首先需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image</p>
+</blockquote>
+<a id="more"></a>
+
+<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
+<blockquote>
+<p>打开站点配置文件_config.yml，修改下述内容</p>
+</blockquote>
+<p><code>post_asset_folder: true</code></p>
+<ul>
+<li>2.修改依赖文件</li>
+</ul>
+<blockquote>
+<p>打开/node_modules/hexo-asset-image/，将index.js更换为下面的代码内容</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">  var config &#x3D; hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">    var link &#x3D; data.permalink;</span><br><span class="line">    var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">    &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">    var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">    for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key &#x3D; toprocess[i];</span><br><span class="line"></span><br><span class="line">      var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">        if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">            &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">            var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">            if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">               !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">              &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">              &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">              var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              if(srcArray.length &gt; 1)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">              $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">            console.info&amp;&amp;console.info($(this));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] &#x3D; $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启服务查看</li>
+</ul>
+<blockquote>
+<p>输入以下命令重启服务，查看图片展示</p>
+</blockquote>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wget下载jdk地址命令</title>
     <url>/2019/12/31/java/jdk-download/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24&#x3D;http%3A%2F%2Fwww.oracle.com%2F; oraclelicense&#x3D;accept-securebackup-cookie&quot; &quot;http:&#x2F;&#x2F;download.oracle.com&#x2F;otn-pub&#x2F;java&#x2F;jdk&#x2F;8u141-b15&#x2F;336fa29ff2bb4ef291e347e091f7f4a7&#x2F;jdk-8u141-linux-x64.tar.gz&quot;</span></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24&#x3D;http%3A%2F%2Fwww.oracle.com%2F; oraclelicense&#x3D;accept-securebackup-cookie&quot; &quot;http:&#x2F;&#x2F;download.oracle.com&#x2F;otn-pub&#x2F;java&#x2F;jdk&#x2F;8u141-b15&#x2F;336fa29ff2bb4ef291e347e091f7f4a7&#x2F;jdk-8u141-linux-x64.tar.gz&quot;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -12,9 +192,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Element-UI的上传组件在IE10浏览器中遇到的问题解决</title>
+    <url>/2019/01/04/vue/vue-ie10-upload/</url>
+    <content><![CDATA[<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h2><p>上传一个文件A.file后，当第二次选择同一个文件（A.file）,页面无反应。组件所有的钩子方法都不触发，选择不同文件则可以继续上传。</p>
+<p>测试了几个浏览器，firefox/chrome/ie11都不存在这样的问题，只有ie10有</p>
+<a id="more"></a>
+
+<h2 id="2-解决"><a href="#2-解决" class="headerlink" title="2.解决"></a>2.解决</h2><p>各种尝试，最后翻到element-ui的<a href="https://github.com/ElemeFE/element/issues/5822" target="_blank" rel="noopener" title="https://github.com/ElemeFE/element/issues/5822">github.issue</a>里面找到解决方案：</p>
+<p>在组件外套一层form，上传完成后重置form数据</p>
+<p><code>this.$refs.uploaderForm.reset()</code></p>
+<p>因为原代码中使用了<el-form>，也尝试使用el-form.resetFields方法以及el-upload.clearFiles等方式，结果都无效。</el-form></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Element-UI</tag>
+        <tag>问题日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu-shell-error</title>
     <url>/2019/12/17/linux/ubuntu-shell-error/</url>
-    <content><![CDATA[<h4 id="linux-shell脚本执行错误：bad-substitution"><a href="#linux-shell脚本执行错误：bad-substitution" class="headerlink" title="linux shell脚本执行错误：bad substitution"></a>linux shell脚本执行错误：bad substitution</h4><p>脚本内容：<br><img src="/2019/12/17/linux/ubuntu-shell-error/sh_info.png" alt="error"></p>
+    <content><![CDATA[<h4 id="linux-shell脚本执行错误：bad-substitution"><a href="#linux-shell脚本执行错误：bad-substitution" class="headerlink" title="linux shell脚本执行错误：bad substitution"></a>linux shell脚本执行错误：bad substitution</h4><p>脚本内容：   </p>
+<a id="more"></a>
+<p><img src="/2019/12/17/linux/ubuntu-shell-error/sh_info.png" alt="error"></p>
 <p>windows执行无误，ubuntu执行报错如下：<br><img src="/2019/12/17/linux/ubuntu-shell-error/error.png" alt="error"></p>
 <p>原因是ubuntu的sh是连接指向dash的，而不是bash，在识别${branchStr:2}时总是出问题。启动时使用<code>bash package.sh</code>命令执行即可</p>
 <h4 id="linux中的sh、dash、bash的区别"><a href="#linux中的sh、dash、bash的区别" class="headerlink" title="linux中的sh、dash、bash的区别"></a>linux中的sh、dash、bash的区别</h4><h5 id="一、常见shell类型"><a href="#一、常见shell类型" class="headerlink" title="一、常见shell类型"></a>一、常见shell类型</h5><ul>
@@ -163,194 +366,5 @@
         <tag>linux</tag>
         <tag>ubuntu</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hexo图片不显示</title>
-    <url>/2019/12/12/hexo/hexo-pic-view/</url>
-    <content><![CDATA[<blockquote>
-<p>在搭建Hexo Blog 过程中出现了图片不显示，解决的方法：</p>
-</blockquote>
-<ul>
-<li>1.安装插件与配置</li>
-</ul>
-<blockquote>
-<p>首先需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image</p>
-</blockquote>
-<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
-<blockquote>
-<p>打开站点配置文件_config.yml，修改下述内容</p>
-</blockquote>
-<p><code>post_asset_folder: true</code></p>
-<ul>
-<li>2.修改依赖文件</li>
-</ul>
-<blockquote>
-<p>打开/node_modules/hexo-asset-image/，将index.js更换为下面的代码内容</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span></pre></td></tr><tr><td class="code"><pre><span class="line">function getPosition(str, m, i) &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  return str.split(m, i).join(m).length;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  var config &#x3D; hexo.config;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  if(config.post_asset_folder)&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    var link &#x3D; data.permalink;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span></pre></td></tr><tr><td class="code"><pre><span class="line">    var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span></pre></td></tr><tr><td class="code"><pre><span class="line">    for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">      var key &#x3D; toprocess[i];</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">      var $ &#x3D; cheerio.load(data[key], &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        ignoreWhitespace: false,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        xmlMode: false,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        lowerCaseTags: false,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        decodeEntities: false</span></pre></td></tr><tr><td class="code"><pre><span class="line">      &#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">      $(&#39;img&#39;).each(function()&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        if ($(this).attr(&#39;src&#39;))&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">            &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span></pre></td></tr><tr><td class="code"><pre><span class="line">            var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">            if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span></pre></td></tr><tr><td class="code"><pre><span class="line">               !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">              &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span></pre></td></tr><tr><td class="code"><pre><span class="line">              &#x2F;&#x2F; In addition, to support multi-level local directory.</span></pre></td></tr><tr><td class="code"><pre><span class="line">              var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">                return elem !&#x3D; &#39;&#39;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">              &#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">              var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">                return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span></pre></td></tr><tr><td class="code"><pre><span class="line">              &#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">              if(srcArray.length &gt; 1)</span></pre></td></tr><tr><td class="code"><pre><span class="line">                srcArray.shift();</span></pre></td></tr><tr><td class="code"><pre><span class="line">              src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">              $(this).attr(&#39;src&#39;, config.root + link + src);</span></pre></td></tr><tr><td class="code"><pre><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span></pre></td></tr><tr><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">        &#125;else&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">            console.info&amp;&amp;console.info($(this));</span></pre></td></tr><tr><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">      &#125;);</span></pre></td></tr><tr><td class="code"><pre><span class="line">      data[key] &#x3D; $.html();</span></pre></td></tr><tr><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
-
-<ul>
-<li>重启服务查看</li>
-</ul>
-<blockquote>
-<p>输入以下命令重启服务，查看图片展示</p>
-</blockquote>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu系统中启动Hexo遇到ENOSPC错误以及如何解决</title>
-    <url>/2019/12/09/hexo/hexo-linux-server/</url>
-    <content><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><blockquote>
-<p>在ubuntu系统中启动Hexo服务，Terminal报错：</p>
-</blockquote>
-<p><img src="/2019/12/09/hexo/hexo-linux-server/hexo-server-error.png" alt="errorInfo.png"></p>
-<p>ENOSPC的含义是 <code>Error No more hard-disk space available</code>（没有更多的磁盘空间可以使用）   </p>
-<p>经度娘的一番分析，确诊原因为，<code>nodemon</code>监听文件过多（超过系统允许监听的默认值）导致出现异常。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><h6 id="方法一：-提高系统允许监听文件数"><a href="#方法一：-提高系统允许监听文件数" class="headerlink" title="方法一： 提高系统允许监听文件数"></a>方法一： 提高系统允许监听文件数</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo fs.inotify.max_user_watches&#x3D;524288 | sudo tee -a &#x2F;etc&#x2F;sysctl.conf &amp;&amp; sudo sysctl -p</span></pre></td></tr></table></figure>
-
-<h6 id="方法二：过滤掉不必要的监听的文件"><a href="#方法二：过滤掉不必要的监听的文件" class="headerlink" title="方法二：过滤掉不必要的监听的文件"></a>方法二：过滤掉不必要的监听的文件</h6><p>在项目的根目录，创建 nodemon.json 文件，并设置过滤内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; nodemon.json</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  &quot;ignore&quot;: [</span></pre></td></tr><tr><td class="code"><pre><span class="line">    &quot;*.test.js&quot;, </span></pre></td></tr><tr><td class="code"><pre><span class="line">    &quot;dist&#x2F;*&quot;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  ]</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<p>需要注意的是，nodemon 会默认忽略掉以下类型的文件， <code>.git</code>, <code>node_modules</code>, <code>bower_components</code>, <code>.nyc_output</code>, <code>coverage</code>，<code>.sass-cache</code>。因此，不必将这些类型的文件放入到配置中。</p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Node.js</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo + 云服务器 = 我的字留地</title>
-    <url>/2019/12/08/hexo/hexo-init/</url>
-    <content><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
-<p>网络上有各式各样Hexo博客搭建教程，在这里就不再做详细描述，只是简单记述一下本站的大体结构。<br>本站是基于<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>博客框架+<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next</a>主题搭建，最初部署于GitHub的page服务，现改用为阿里云服务器。    </p>
-</blockquote>
-<h4 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h4><ul>
-<li>本地<a href="git-scm.com">git</a>环境</li>
-<li>本地<a href="nodejs.org">Node.js</a>环境 </li>
-<li>git服务(可以使用<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>用来代码托管，或者使用其他代码服务)<br>作为代码托管，或者拥有其他代码服务的账号)</li>
-<li>云服务器 + 域名（也可使用GitHub等服务的page服务）</li>
-</ul>
-<h4 id="2-Hexo博客服务"><a href="#2-Hexo博客服务" class="headerlink" title="2.Hexo博客服务"></a>2.Hexo博客服务</h4><ul>
-<li>可参考网络中各种hexo教程，再此不做过多重复搬运工作。<blockquote>
-<p>（感谢<a href="http://www.zhaojun.im/categories/Hexo/" target="_blank" rel="noopener">赵俊的博客</a>在本站搭建过程中提供的支持，以及简书上各路技术博主支持）</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="3-我的博客"><a href="#3-我的博客" class="headerlink" title="3.我的博客"></a>3.我的博客</h4><p>本站使用阿里云服务托管，在阿里云服务器中搭建两个git服务，启动nginx服务器做访问转发。</p>
-<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664" target="_blank" rel="noopener">git服务搭建教程</a></p>
-<ul>
-<li><p>1) git server1: Hexo-blog管理，用于支持多端更新</p>
-</li>
-<li><p>2) git server2: 站点配置文件(_config.yml)中deplay配置，用于部署</p>
-</li>
-<li><p>3) 服务器中创建blog目录,定时更新server    </p>
-<ul>
-<li><p>创建blog文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local</span></pre></td></tr><tr><td class="code"><pre><span class="line">mkdir blog</span></pre></td></tr><tr><td class="code"><pre><span class="line">cd blog</span></pre></td></tr></table></figure></li>
-<li><p>克隆blog部署文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git.server2</span></pre></td></tr></table></figure></li>
-<li><p>设置<a href="https://www.runoob.com/w3cnote/linux-crontab-tasks.html" target="_blank" rel="noopener">Linux定时任务</a>,在/usr/local/blog路径创建脚本文件update.sh,定时同步资源    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd $&#123;server2&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line">git pull</span></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>4) 修改nginx配置root指向/usr/local/blog/${server2}</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>excel之vlookup——列查询匹配</title>
-    <url>/2019/01/06/excel/excel-vlookup/</url>
-    <content><![CDATA[<p>VLOOKUP函数是Excel中的一个纵向查找函数，它与LOOKUP函数和HLOOKUP函数属于一类函数，在工作中都有广泛应用，例如可以用来核对数据，多个表格之间快速导入数据等函数功能。功能是按列查找，最终返回该列所需查询列序所对应的值；与之对应的HLOOKUP是按行查找的。        ————度娘百科</p>
-<h2 id="方法参数分析"><a href="#方法参数分析" class="headerlink" title="方法参数分析"></a>方法参数分析</h2><p>VLOOKUP方法需要输入四个参数</p>
-<ul>
-<li>value1：查询检索字段/数据源（字符串或者引用位置）</li>
-<li>value2：查询区域（格式一 (B:D) 查询B列到D列；  格式二 (B2:D5) B2到D5之间的长方形区域）第一列为查询区域，后几列为value3使用，value3取值须在查询区域内，如value3填入3，则value2必填B:D/B:E/B:F…不可填B:B/B:C</li>
-<li>value3：填入的数据取查询区域的第几列</li>
-<li>value4：是否模糊匹配（true：模糊匹配；false：完全匹配）</li>
-</ul>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>假定有如下两张表，需要将表2的年龄信息对应填入表1：</p>
-<p><img src="/2019/01/06/excel/excel-vlookup/empty.png" alt="初始文件"><br><img src="/2019/01/06/excel/excel-vlookup/age.png" alt="初始文件"></p>
-<h2 id="使用vlookup查询获取数据"><a href="#使用vlookup查询获取数据" class="headerlink" title="使用vlookup查询获取数据"></a>使用vlookup查询获取数据</h2><p><img src="/2019/01/06/excel/excel-vlookup/function.png" alt="初始文件"></p>
-<p>为了方便方法填写，将查询表的数据复制到目标文件的右侧，填写VLOOKUP方法，并使用下拉填充填满整列，查询结果即显示出来</p>
-<h3 id="白话翻译："><a href="#白话翻译：" class="headerlink" title="白话翻译："></a>白话翻译：</h3><p>将上图中的函数<code>VLOOKUP(A2,F:G,2,FALSE)</code>进行功能描述就是：从F列中找到与A2（value1）中数据信息完全一致（value4：false）的数据行（找到F3，定位第3行），并将该行对应G列（value3：第2列）的数据信息（G3）填入当前位置（C2）</p>
-<h2 id="清除公式及辅助数据"><a href="#清除公式及辅助数据" class="headerlink" title="清除公式及辅助数据"></a>清除公式及辅助数据</h2><ol>
-<li>清除公式：<br>查询完成后，点击列表头原地复制粘贴，粘贴时使用选择性粘贴只粘贴数值</li>
-<li>清除右侧查询域数据</li>
-</ol>
-<p><img src="/2019/01/06/excel/excel-vlookup/result.png" alt="初始文件"></p>
-]]></content>
-      <categories>
-        <category>excel</category>
-      </categories>
-      <tags>
-        <tag>excel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Element-UI的上传组件在IE10浏览器中遇到的问题解决</title>
-    <url>/2019/01/04/vue/vue-ie10-upload/</url>
-    <content><![CDATA[<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h2><p>上传一个文件A.file后，当第二次选择同一个文件（A.file）,页面无反应。组件所有的钩子方法都不触发，选择不同文件则可以继续上传。</p>
-<p>测试了几个浏览器，firefox/chrome/ie11都不存在这样的问题，只有ie10有</p>
-<h2 id="2-解决"><a href="#2-解决" class="headerlink" title="2.解决"></a>2.解决</h2><p>各种尝试，最后翻到element-ui的<a href="https://github.com/ElemeFE/element/issues/5822" target="_blank" rel="noopener" title="https://github.com/ElemeFE/element/issues/5822">github.issue</a>里面找到解决方案：</p>
-<p>在组件外套一层form，上传完成后重置form数据</p>
-<p><code>this.$refs.uploaderForm.reset()</code></p>
-<p>因为原代码中使用了<el-form>，也尝试使用el-form.resetFields方法以及el-upload.clearFiles等方式，结果都无效。</el-form></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>Element-UI</tag>
-        <tag>问题日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello world</title>
-    <url>/2019/01/03/hello-world/</url>
-    <content><![CDATA[<h3 id="小站开张了！"><a href="#小站开张了！" class="headerlink" title="小站开张了！"></a>小站开张了！</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
-]]></content>
-      <categories>
-        <category>闲言碎语</category>
-      </categories>
-      <tags>
-        <tag>闲言碎语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2018/12/31/hexo-hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
