@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hello world</title>
-    <url>/2019/01/03/hello-world/</url>
-    <content><![CDATA[<h3 id="小站开张了！"><a href="#小站开张了！" class="headerlink" title="小站开张了！"></a>小站开张了！</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
-]]></content>
-      <categories>
-        <category>闲言碎语</category>
-      </categories>
-      <tags>
-        <tag>闲言碎语</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2018/12/31/hexo-hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -31,6 +19,18 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>hello world</title>
+    <url>/2019/01/03/hello-world/</url>
+    <content><![CDATA[<h3 id="小站开张了！"><a href="#小站开张了！" class="headerlink" title="小站开张了！"></a>小站开张了！</h3><h4 id="热烈庆祝我的自嗨小站于几天前正式上线"><a href="#热烈庆祝我的自嗨小站于几天前正式上线" class="headerlink" title="热烈庆祝我的自嗨小站于几天前正式上线!!"></a>热烈庆祝我的自嗨小站于几天前正式上线!!</h4><hr>
+]]></content>
+      <categories>
+        <category>闲言碎语</category>
+      </categories>
+      <tags>
+        <tag>闲言碎语</tag>
+      </tags>
   </entry>
   <entry>
     <title>excel之vlookup——列查询匹配</title>
@@ -61,6 +61,48 @@
       </categories>
       <tags>
         <tag>excel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo图片不显示</title>
+    <url>/2019/12/12/hexo/hexo-pic-view/</url>
+    <content><![CDATA[<blockquote>
+<p>在搭建Hexo Blog 过程中出现了图片不显示，解决的方法：</p>
+</blockquote>
+<ul>
+<li>1.安装插件与配置</li>
+</ul>
+<blockquote>
+<p>首先需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image</p>
+</blockquote>
+<a id="more"></a>
+
+<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
+<blockquote>
+<p>打开站点配置文件_config.yml，修改下述内容</p>
+</blockquote>
+<p><code>post_asset_folder: true</code></p>
+<ul>
+<li>2.修改依赖文件</li>
+</ul>
+<blockquote>
+<p>打开/node_modules/hexo-asset-image/，将index.js更换为下面的代码内容</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">  var config &#x3D; hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">    var link &#x3D; data.permalink;</span><br><span class="line">    var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">    &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">    var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">    for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key &#x3D; toprocess[i];</span><br><span class="line"></span><br><span class="line">      var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">        if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">            &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">            var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">            if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">               !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">              &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">              &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">              var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              if(srcArray.length &gt; 1)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">              $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">            console.info&amp;&amp;console.info($(this));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] &#x3D; $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启服务查看</li>
+</ul>
+<blockquote>
+<p>输入以下命令重启服务，查看图片展示</p>
+</blockquote>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -139,48 +181,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo图片不显示</title>
-    <url>/2019/12/12/hexo/hexo-pic-view/</url>
-    <content><![CDATA[<blockquote>
-<p>在搭建Hexo Blog 过程中出现了图片不显示，解决的方法：</p>
-</blockquote>
-<ul>
-<li>1.安装插件与配置</li>
-</ul>
-<blockquote>
-<p>首先需要安装一个图片路径转换的插件，这个插件名字是hexo-asset-image</p>
-</blockquote>
-<a id="more"></a>
-
-<p><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></p>
-<blockquote>
-<p>打开站点配置文件_config.yml，修改下述内容</p>
-</blockquote>
-<p><code>post_asset_folder: true</code></p>
-<ul>
-<li>2.修改依赖文件</li>
-</ul>
-<blockquote>
-<p>打开/node_modules/hexo-asset-image/，将index.js更换为下面的代码内容</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">function getPosition(str, m, i) &#123;</span><br><span class="line">  return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">  var config &#x3D; hexo.config;</span><br><span class="line">  if(config.post_asset_folder)&#123;</span><br><span class="line">    var link &#x3D; data.permalink;</span><br><span class="line">    var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">    &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">    var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">    for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      var key &#x3D; toprocess[i];</span><br><span class="line"></span><br><span class="line">      var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: false,</span><br><span class="line">        xmlMode: false,</span><br><span class="line">        lowerCaseTags: false,</span><br><span class="line">        decodeEntities: false</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">        if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">            &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">            var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">            if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">               !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">              &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">              &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">              var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">              &#125;);</span><br><span class="line">              if(srcArray.length &gt; 1)</span><br><span class="line">                srcArray.shift();</span><br><span class="line">              src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">              $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">              console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">            console.info&amp;&amp;console.info($(this));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] &#x3D; $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>重启服务查看</li>
-</ul>
-<blockquote>
-<p>输入以下命令重启服务，查看图片展示</p>
-</blockquote>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>wget下载jdk地址命令</title>
     <url>/2019/12/31/java/jdk-download/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget --no-cookies --no-check-certificate --header &quot;Cookie: gpw_e24&#x3D;http%3A%2F%2Fwww.oracle.com%2F; oraclelicense&#x3D;accept-securebackup-cookie&quot; &quot;http:&#x2F;&#x2F;download.oracle.com&#x2F;otn-pub&#x2F;java&#x2F;jdk&#x2F;8u141-b15&#x2F;336fa29ff2bb4ef291e347e091f7f4a7&#x2F;jdk-8u141-linux-x64.tar.gz&quot;</span><br></pre></td></tr></table></figure>]]></content>
@@ -189,27 +189,6 @@
       </categories>
       <tags>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Element-UI的上传组件在IE10浏览器中遇到的问题解决</title>
-    <url>/2019/01/04/vue/vue-ie10-upload/</url>
-    <content><![CDATA[<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h2><p>上传一个文件A.file后，当第二次选择同一个文件（A.file）,页面无反应。组件所有的钩子方法都不触发，选择不同文件则可以继续上传。</p>
-<p>测试了几个浏览器，firefox/chrome/ie11都不存在这样的问题，只有ie10有</p>
-<a id="more"></a>
-
-<h2 id="2-解决"><a href="#2-解决" class="headerlink" title="2.解决"></a>2.解决</h2><p>各种尝试，最后翻到element-ui的<a href="https://github.com/ElemeFE/element/issues/5822" target="_blank" rel="noopener" title="https://github.com/ElemeFE/element/issues/5822">github.issue</a>里面找到解决方案：</p>
-<p>在组件外套一层form，上传完成后重置form数据</p>
-<p><code>this.$refs.uploaderForm.reset()</code></p>
-<p>因为原代码中使用了<el-form>，也尝试使用el-form.resetFields方法以及el-upload.clearFiles等方式，结果都无效。</el-form></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-        <tag>Element-UI</tag>
-        <tag>问题日志</tag>
       </tags>
   </entry>
   <entry>
@@ -365,6 +344,27 @@
       <tags>
         <tag>linux</tag>
         <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Element-UI的上传组件在IE10浏览器中遇到的问题解决</title>
+    <url>/2019/01/04/vue/vue-ie10-upload/</url>
+    <content><![CDATA[<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h2><p>上传一个文件A.file后，当第二次选择同一个文件（A.file）,页面无反应。组件所有的钩子方法都不触发，选择不同文件则可以继续上传。</p>
+<p>测试了几个浏览器，firefox/chrome/ie11都不存在这样的问题，只有ie10有</p>
+<a id="more"></a>
+
+<h2 id="2-解决"><a href="#2-解决" class="headerlink" title="2.解决"></a>2.解决</h2><p>各种尝试，最后翻到element-ui的<a href="https://github.com/ElemeFE/element/issues/5822" target="_blank" rel="noopener" title="https://github.com/ElemeFE/element/issues/5822">github.issue</a>里面找到解决方案：</p>
+<p>在组件外套一层form，上传完成后重置form数据</p>
+<p><code>this.$refs.uploaderForm.reset()</code></p>
+<p>因为原代码中使用了<el-form>，也尝试使用el-form.resetFields方法以及el-upload.clearFiles等方式，结果都无效。</el-form></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Element-UI</tag>
+        <tag>问题日志</tag>
       </tags>
   </entry>
 </search>
